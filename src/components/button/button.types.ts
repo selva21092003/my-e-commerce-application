@@ -3,4 +3,4 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   varient: VarientType
 };
 
-export type VarientType='primary' | 'secondary';
+export type VarientType='primary' | 'secondary' | 'outline';

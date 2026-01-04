@@ -1,6 +1,6 @@
-import BannerCard from "../banner-card/banner-card";
-import type { BannerCardProps } from "../banner-card/banner-card.types";
-import Footer from "../footer/footer";
+import BannerCard from "../../components/banner-card/banner-card";
+import type { BannerCardProps } from "../../components/banner-card/banner-card.types";
+import Footer from "../../components/footer/footer";
 
 export const Home = () => {
   const bannerElements: BannerCardProps[] = [
@@ -64,7 +64,7 @@ export const Home = () => {
     },
   ];
   return (
-    <>
+    <div className="md:px-20">
       <div className="mt-5 flex flex-col md:flex-row gap-5 items-center justify-between w-full">
         {bannerElements.map((banner, index) => (
           <BannerCard key={index} {...banner} />
@@ -96,6 +96,6 @@ export const Home = () => {
         ))}
       </div>
       <Footer/>
-    </>
+    </div>
   );
 };

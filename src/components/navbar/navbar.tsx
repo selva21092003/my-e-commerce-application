@@ -5,18 +5,20 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FiAlignJustify } from "react-icons/fi";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from "react-router";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const navigate=useNavigate();
   return (
     <header>
       <div
-        className={`flex ${
+        className={`fixed bg-zinc-100 w-full flex z-10 md:px-10 px-2 ${
           isMenuOpen && "flex-col"
         } justify-between items-center`}
       >
         <div className="flex items-center w-full justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center cursor-pointer" onClick={()=>navigate("/")}>
             <img
               className="rounded-full"
               width={75}
@@ -37,13 +39,13 @@ export const Navbar = () => {
           </div>
         </div>
         <nav
-          className={`${!isMenuOpen && "hidden"} flex mt-3 md:mt-0 md:flex items-center gap-8`}
+          className={`${!isMenuOpen && "hidden"} flex my-3 md:my-0 md:flex items-center gap-8`}
         >
-          <Button varient="primary">Login</Button>
-          <IconButton>
+          <Button varient="primary" onClick={()=>navigate("/login")}>Login</Button>
+          <IconButton onClick={()=>navigate("/wish-list")}>
             <FaRegHeart className="w-6 h-6 " />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={()=>navigate("/card")}>
             <MdOutlineShoppingCart className="w-7 h-7 " />
           </IconButton>
         </nav>
