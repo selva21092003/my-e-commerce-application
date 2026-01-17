@@ -7,7 +7,7 @@ const BannerCard = (banner: BannerCardProps) => {
     <div>
       <img
         onClick={() => navigate("/products")}
-        className="transition cursor-pointer hover:scale-105 ease-in-out duration-300 bg-transparent"
+        className="transition cursor-pointer hover:scale-105 ease-in-out duration-300 bg-transparent rounded"
         src={banner.imgSrc}
         alt={banner.altText}
         height={banner.height}

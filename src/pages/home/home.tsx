@@ -1,36 +1,37 @@
 import BannerCard from "../../components/banner-card/banner-card";
 import type { BannerCardProps } from "../../components/banner-card/banner-card.types";
 import Footer from "../../components/footer/footer";
+import { useProduct } from "../../context/product-context/product-context";
 
 export const Home = () => {
   const bannerElements: BannerCardProps[] = [
     {
       imgSrc:
-        "https://therightfitstore.netlify.app/static/media/Mens.11ab09f5.png",
+        "https://i.imgur.com/QkIa5tT.jpeg",
       altText: "men-image",
-      height: 300,
-      width: 300,
+      height: 250,
+      width: 250,
     },
     {
       imgSrc:
-        "https://therightfitstore.netlify.app/static/media/Womens.432883ab.png",
+        "	https://i.imgur.com/cHddUCu.jpeg",
       altText: "women-image",
-      height: 300,
-      width: 300,
+      height: 250,
+      width: 250,
     },
     {
       imgSrc:
-        "https://therightfitstore.netlify.app/static/media/Boys.23137fa8.png",
+        "https://i.imgur.com/ZKGofuB.jpeg",
       altText: "boys-image",
-      height: 300,
-      width: 300,
+      height: 250,
+      width: 250,
     },
     {
       imgSrc:
-        "https://therightfitstore.netlify.app/static/media/Girls.9cd9b3f9.png",
+        "https://i.imgur.com/wXuQ7bm.jpeg",
       altText: "girls-image",
-      height: 300,
-      width: 300,
+      height: 250,
+      width: 250,
     },
   ];
   const brands: BannerCardProps[] = [
@@ -63,8 +64,9 @@ export const Home = () => {
       height: 200,
     },
   ];
+  const { productState } = useProduct();
   return (
-    <div className="md:px-20">
+    <div className={`md:px-20 ${productState.isMenuOpen ? "mt-38" : "mt-20"}`}>
       <div className="mt-5 flex flex-col md:flex-row gap-5 items-center justify-between w-full">
         {bannerElements.map((banner, index) => (
           <BannerCard key={index} {...banner} />
@@ -95,7 +97,7 @@ export const Home = () => {
           <BannerCard key={index} {...brand} />
         ))}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
